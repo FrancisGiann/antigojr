@@ -1,18 +1,25 @@
-# 🏺 AntigoJR - Antique Family Business Website
+# 🏺 AntigoJR - Antique Business Website
 
-**AntigoJR** is a simple static website made using **HTML** and **CSS**.  
-It was created to showcase a family-run antique business, featuring a homepage and a collection display.
+## Project Overview  
+AntigoJR is a static website created using HTML and CSS to showcase a family-owned antique business. It includes a homepage and a collection page. The site is hosted on GitHub Pages and connected to a custom domain.
 
-This project was made for practice and presentation purposes.
-
----
-
-## 📸 Screenshots
-
-### 🏠 Homepage  
-Welcome page introducing the business and its background.  
+### 📸 Screenshots
+**Homepage**  
 ![Homepage](screenshots/homepage.png)
 
-### 🗃️ Collections Page  
-Displays some of the antique items available.  
+**Collections Page**  
 ![Collections](screenshots/collections.png)
+
+## Key Features
+- **Homepage:** Simple landing page introducing the business.
+- **Product Gallery:** Clean display of antique item photos.
+- **Responsive Design:** Mobile-friendly layout using custom CSS.
+- **Live Hosting:** Deployed with GitHub Pages and real domain.
+
+## Collaboration
+Built individually for a Technopreneurship class.
+
+## Technologies Used
+- HTML
+- CSS
+- Git & GitHub Pages
