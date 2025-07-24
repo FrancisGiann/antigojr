@@ -42,11 +42,9 @@
         <a href="#collection" class="btn">Explore Collection</a>
     </section>
     
-    <!-- Updated Featured Collection Section without Hidden Products and See More Button -->
 <section id="collection" class="reveal fade-bottom">
     <h2 class="section-title">Featured Collection</h2>
     <div class="featured-products" id="featured-products">
-        <!-- Only the 4 visible products -->
         <div class="product-card reveal fade-bottom" data-delay="0.1">
             <div class="product-img">
                 <img src="/images/product1_3.jpg" alt="product img">
@@ -202,7 +200,6 @@
                             <img id="modalMainImage" src="/api/placeholder/600/600" alt="Product Image">
                         </div>
                         <div class="thumbnail-images" id="modalThumbnails">
-                            <!-- Thumbnails will be dynamically inserted here -->
                         </div>
                     </div>
                     <div class="product-detail-info">
@@ -226,7 +223,6 @@
                         <div class="product-details">
                             <h3>Details</h3>
                             <ul id="modalDetailsList">
-                                <!-- Details will be dynamically inserted here -->
                             </ul>
                         </div>
                         <div class="product-actions">
@@ -267,17 +263,13 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
         (function() {
-            // Replace 'your_user_id' with your actual EmailJS user ID once you've set up an account
             emailjs.init("9UpsnL9MRJmnnfi00");
         })();
     </script>
     <script>
-        // Product data definition
-        // Product data definition with unique images
 const productData = {
     "wariza": {
         "title": "Carabao Bench",
@@ -353,9 +345,7 @@ const productData = {
     }
 };
 
-        // Wait for DOM to fully load before attaching event listeners
         document.addEventListener("DOMContentLoaded", function() {
-            // Preloader
             window.addEventListener('load', function() {
                 const preloader = document.querySelector('.preloader');
                 setTimeout(function() {
@@ -366,7 +356,6 @@ const productData = {
                 }, 1000);
             });
             
-            // Custom cursor
             const cursor = document.querySelector('.cursor');
             const cursorFollower = document.querySelector('.cursor-follower');
             
@@ -390,7 +379,6 @@ const productData = {
                 cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
             });
             
-            // Hamburger menu
             const hamburger = document.querySelector('.hamburger');
             const navContainer = document.querySelector('.nav-container');
             
@@ -401,7 +389,6 @@ const productData = {
                 });
             }
             
-            // Header scroll effect
             window.addEventListener('scroll', function() {
                 const header = document.querySelector('header');
                 const scrollPosition = window.scrollY;
@@ -413,7 +400,6 @@ const productData = {
                 }
             });
             
-            // Scroll reveal animation
             function reveal() {
                 const reveals = document.querySelectorAll('.reveal');
                 
@@ -423,7 +409,6 @@ const productData = {
                     const elementVisible = 150;
                     
                     if (elementTop < windowHeight - elementVisible) {
-                        // Add staggered delay based on data-delay attribute
                         const delay = reveals[i].getAttribute('data-delay') || 0;
                         setTimeout(() => {
                             reveals[i].classList.add('active');
@@ -433,9 +418,8 @@ const productData = {
             }
             
             window.addEventListener('scroll', reveal);
-            reveal(); // Call once on load
+            reveal(); 
             
-            // Navigation active state
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
             
@@ -459,32 +443,26 @@ const productData = {
                 });
             });
             
-            // Modal elements
             const modal = document.getElementById("productModal");
             const detailBtns = document.querySelectorAll(".view-details, .quick-view");
             const closeBtn = document.querySelector(".close-modal");
             
-            // Add click event for all detail buttons
             detailBtns.forEach(btn => {
     btn.addEventListener("click", function(e) {
         e.preventDefault();
         const productId = this.getAttribute("data-product");
         
-        // Check if the product exists in our data
         if (productData[productId]) {
             const product = productData[productId];
             
-            // Populate modal with product data
             document.getElementById("modalTitle").textContent = product.title;
             document.getElementById("modalPeriod").textContent = product.period;
             document.getElementById("modalPrice").textContent = product.price;
             document.getElementById("modalDescription").textContent = product.description;
             
-            // Clear and populate details list
             const detailsList = document.getElementById("modalDetailsList");
             detailsList.innerHTML = "";
             
-            // Make sure details exist before trying to iterate through them
             if (product.details && Array.isArray(product.details)) {
                 product.details.forEach(detail => {
                     const li = document.createElement("li");
@@ -493,12 +471,10 @@ const productData = {
                 });
             }
             
-            // Set main image
             const mainImage = document.getElementById("modalMainImage");
             mainImage.src = product.mainImage || "/api/placeholder/600/600";
             mainImage.alt = product.title;
             
-            // Clear and populate thumbnails
             const thumbnailsContainer = document.getElementById("modalThumbnails");
             thumbnailsContainer.innerHTML = "";
             
@@ -510,13 +486,10 @@ const productData = {
                     thumbnail.className = "thumbnail";
                     if (index === 0) thumbnail.classList.add("active");
                     
-                    // Add click event to thumbnail
                     thumbnail.addEventListener("click", function() {
                         mainImage.src = this.src;
-                        // Remove active class from all thumbnails
                         document.querySelectorAll(".thumbnail").forEach(thumb => 
                             thumb.classList.remove("active"));
-                        // Add active class to clicked thumbnail
                         this.classList.add("active");
                     });
                     
@@ -524,40 +497,35 @@ const productData = {
                 });
             }
             
-            // Show modal with animation
             modal.style.display = "block";
             setTimeout(() => {
                 modal.classList.add('show');
             }, 10);
-            document.body.style.overflow = "hidden"; // Prevent scrolling
+            document.body.style.overflow = "hidden"; 
         }
     });
 });
 
-            // Close modal when clicking the X button
             if (closeBtn) {
                 closeBtn.addEventListener("click", function() {
                     closeModal();
                 });
             }
 
-            // Close modal when clicking outside of it
             window.addEventListener("click", function(event) {
                 if (event.target == modal) {
                     closeModal();
                 }
             });
             
-            // Function to close modal with animation
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
                     modal.style.display = "none";
-                    document.body.style.overflow = "auto"; // Re-enable scrolling
+                    document.body.style.overflow = "auto"; 
                 }, 300);
             }
 
-            // Thumbnail image functionality
             const thumbnails = document.querySelectorAll(".thumbnail");
             const mainImage = document.getElementById("modalMainImage");
 
@@ -566,21 +534,17 @@ const productData = {
                     thumbnail.addEventListener("click", function() {
                         mainImage.src = this.src;
                         
-                        // Remove active class from all thumbnails
                         thumbnails.forEach(thumb => thumb.classList.remove("active"));
                         
-                        // Add active class to clicked thumbnail
                         this.classList.add("active");
                     });
                 });
             }
             
-            // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Close mobile menu if open
                     if (navContainer.classList.contains('show')) {
                         navContainer.classList.remove('show');
                         hamburger.classList.remove('active');
@@ -601,18 +565,15 @@ const productData = {
         function sendEmail(event) {
             event.preventDefault();
             
-            // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value || "New message from AntiGoJr website";
             const message = document.getElementById('message').value;
             
-            // Show loading state
             const formStatus = document.getElementById('formStatus');
             formStatus.style.display = 'block';
             formStatus.innerHTML = '<p style="color: #666;">Sending message...</p>';
             
-            // Prepare email data using EmailJS service
             const serviceID = 'service_uyk1fkl'; 
             const templateID = 'template_lh9c2em';   
             const targetEmail = 'francisgiann25@gmail.com';
@@ -628,10 +589,8 @@ const productData = {
                 console.log('SUCCESS!', response.status, response.text);
                 formStatus.innerHTML = '<p style="color: green;">Message sent successfully! We\'ll get back to you soon.</p>';
                 
-                // Reset form
                 document.getElementById('contactForm').reset();
                 
-                // Hide status message after 5 seconds
                 setTimeout(function() {
                     formStatus.style.display = 'none';
                 }, 5000);
