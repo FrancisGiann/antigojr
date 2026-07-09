@@ -25,5 +25,3 @@ Built individually for a Technopreneurship class.
 - CSS  
 - Git & GitHub Pages  
 
-## 🌐 Live Site  
-[https://antigojr.online](https://antigojr.online)
