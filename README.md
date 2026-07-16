@@ -22,6 +22,6 @@ Built individually for a Technopreneurship class.
 
 ## Technologies Used
 - HTML  
-- CSS  
+- CSS/js
 - Git & GitHub Pages  
 
